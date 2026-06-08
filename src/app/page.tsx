@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Terminal, Code2, Server, GraduationCap, Award, BrainCircuit, ExternalLink } from "lucide-react";
+import { Mail, Terminal, Code2, Server, GraduationCap, Award, BrainCircuit, ExternalLink } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Home() {
   const containerVariants = {
@@ -62,10 +63,10 @@ export default function Home() {
             </a>
             <div className="flex gap-4 items-center px-4">
               <a href="https://github.com/avimishra261" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Github className="w-6 h-6" />
+                <FaGithub className="w-6 h-6" />
               </a>
               <a href="https://linkedin.com/in/avimish261" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Linkedin className="w-6 h-6" />
+                <FaLinkedin className="w-6 h-6" />
               </a>
             </div>
           </motion.div>
