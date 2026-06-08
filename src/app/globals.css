@@ -1,22 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #09090b;
+  --color-background: #050505;
   --color-foreground: #fafafa;
   --color-primary: #10b981;
   --color-primary-foreground: #022c22;
   --color-muted: #27272a;
   --color-muted-foreground: #a1a1aa;
-  --color-card: rgba(24, 24, 27, 0.6);
-  --color-border: #27272a;
+  --color-card: rgba(15, 15, 15, 0.4);
+  --color-border: rgba(255, 255, 255, 0.1);
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-outfit), sans-serif;
+  --font-mono: var(--font-space-grotesk), monospace;
 }
 
 @layer base {
   :root {
-    --background: #09090b;
+    --background: #050505;
     --foreground: #fafafa;
   }
   
@@ -24,9 +24,11 @@
     background-color: var(--background);
     color: var(--foreground);
     background-image: 
-      radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-      radial-gradient(at 50% 0%, hsla(225,39%,30%,0.1) 0, transparent 50%), 
-      radial-gradient(at 100% 0%, hsla(339,49%,30%,0.1) 0, transparent 50%);
+      radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.15) 0px, transparent 50%),
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
     background-attachment: fixed;
     min-height: 100vh;
   }
@@ -34,14 +36,45 @@
 
 .glass-card {
   background: var(--color-card);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--color-border);
-  border-radius: 1rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .glass-card:hover {
-  border-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
+  border-color: rgba(16, 185, 129, 0.4);
+  background: rgba(25, 25, 25, 0.6);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 10px 40px rgba(16, 185, 129, 0.1);
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(135deg, #34d399 0%, #22d3ee 100%);
+}
+
+.glow-button {
+  position: relative;
   transition: all 0.3s ease;
+}
+
+.glow-button::before {
+  content: '';
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  background: linear-gradient(135deg, #34d399, #22d3ee);
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow-button:hover::before {
+  opacity: 0.5;
+  filter: blur(8px);
 }

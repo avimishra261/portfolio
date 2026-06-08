@@ -21,13 +21,13 @@ export default function Home() {
   return (
     <main className="min-h-screen text-foreground pb-20">
       {/* Navigation */}
-      <nav className="fixed w-full z-50 glass-card rounded-none border-t-0 border-x-0 border-b border-border/50">
+      <nav className="fixed w-full z-50 bg-black/40 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-          <span className="font-mono font-bold text-xl tracking-tighter">Avi.M</span>
-          <div className="flex gap-6 text-sm font-medium text-muted-foreground">
-            <a href="#about" className="hover:text-foreground transition-colors">About</a>
-            <a href="#projects" className="hover:text-foreground transition-colors">Projects</a>
-            <a href="#skills" className="hover:text-foreground transition-colors">Skills</a>
+          <span className="font-mono font-bold text-2xl tracking-tighter text-white">Avi.<span className="text-emerald-400">M</span></span>
+          <div className="flex gap-8 text-sm font-medium text-zinc-400">
+            <a href="#about" className="hover:text-emerald-400 transition-colors">About</a>
+            <a href="#projects" className="hover:text-emerald-400 transition-colors">Projects</a>
+            <a href="#skills" className="hover:text-emerald-400 transition-colors">Skills</a>
           </div>
         </div>
       </nav>
@@ -40,25 +40,25 @@ export default function Home() {
           variants={containerVariants}
           className="min-h-[70vh] flex flex-col justify-center"
         >
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium w-fit mb-6 border border-primary/20">
+          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 text-sm font-medium w-fit mb-8 border border-emerald-500/20 shadow-[0_0_20px_rgba(16,185,129,0.15)]">
             <Award className="w-4 h-4" />
-            <span>AIR 888 @GATE CS26</span>
+            <span className="tracking-wide">AIR 888 @GATE CS26</span>
           </motion.div>
           
-          <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
+          <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-white">
             Hi, I'm Avi Mishra. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
+            <span className="text-gradient">
               Systems & OS Enthusiast
             </span>
           </motion.h1>
           
-          <motion.p variants={itemVariants} className="text-xl text-muted-foreground max-w-2xl mb-10 leading-relaxed">
+          <motion.p variants={itemVariants} className="text-xl text-zinc-400 max-w-2xl mb-12 leading-relaxed font-light">
             I am a computer science student deeply interested in understanding how systems work beneath the surface. I enjoy exploring operating systems, computer networks, and low-level programming in C.
           </motion.p>
 
-          <motion.div variants={itemVariants} className="flex gap-4">
-            <a href="mailto:avimishra261@gmail.com" className="glass-card px-6 py-3 font-medium flex items-center gap-2 hover:bg-white/5 transition-colors">
-              <Mail className="w-5 h-5" />
+          <motion.div variants={itemVariants} className="flex gap-6 items-center">
+            <a href="mailto:avimishra261@gmail.com" className="glow-button bg-zinc-900 border border-emerald-500/30 text-white px-8 py-3 rounded-xl font-medium flex items-center gap-3 hover:bg-zinc-800 transition-colors shadow-lg">
+              <Mail className="w-5 h-5 text-emerald-400" />
               Get in touch
             </a>
             <div className="flex gap-4 items-center px-4">
@@ -231,8 +231,18 @@ export default function Home() {
         </motion.section>
         
         {/* Footer */}
-        <footer className="pt-10 pb-6 border-t border-border/50 text-center text-muted-foreground text-sm">
-          <p>Built by Antigravity (Agentic AI) for Avi Mishra.</p>
+        <footer className="pt-12 pb-8 border-t border-white/5 text-center flex flex-col items-center justify-center gap-2">
+          <p className="text-zinc-500 font-mono text-sm">
+            © 2026 Avi Mishra. All rights reserved.
+          </p>
+          <div className="flex gap-4 mt-2">
+            <a href="https://github.com/avimishra261" target="_blank" rel="noreferrer" className="text-zinc-600 hover:text-emerald-400 transition-colors">
+              <FaGithub className="w-5 h-5" />
+            </a>
+            <a href="https://linkedin.com/in/avimish261" target="_blank" rel="noreferrer" className="text-zinc-600 hover:text-emerald-400 transition-colors">
+              <FaLinkedin className="w-5 h-5" />
+            </a>
+          </div>
         </footer>
       </div>
     </main>
